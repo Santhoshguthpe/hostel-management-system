@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Students</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Details</h2>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Age</th>
+
+<th>Gender</th>
+
+<th>Room</th>
+
+<th>Phone</th>
+
+<th>Course</th>
+
+<th>Fee</th>
+
+<th>Edit</th>
+
+<th>Delete</th>
+
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student.id }}</td>
+
+<td>{{ student.name }}</td>
+
+<td>{{ student.age }}</td>
+
+<td>{{ student.gender }}</td>
+
+<td>{{ student.room }}</td>
+
+<td>{{ student.phone }}</td>
+
+<td>{{ student.course }}</td>
+
+<td>{{ student.fee_status }}</td>
+
+<td>
+
+<a href="/edit/{{ student.id }}">
+
+<button>Edit</button>
+
+</a>
+
+</td>
+
+<td>
+
+<a href="/delete/{{ student.id }}">
+
+<button>Delete</button>
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+
+<button>Back</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

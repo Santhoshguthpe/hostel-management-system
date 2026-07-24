@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Student</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Edit Student</h2>
+
+<form action="/update/{{ student.id }}" method="POST">
+
+<input type="text" name="name" value="{{ student.name }}" required>
+
+<input type="number" name="age" value="{{ student.age }}" required>
+
+<input type="text" name="gender" value="{{ student.gender }}" required>
+
+<input type="text" name="room" value="{{ student.room }}" required>
+
+<input type="text" name="phone" value="{{ student.phone }}" required>
+
+<input type="text" name="course" value="{{ student.course }}" required>
+
+<select name="fee">
+
+<option value="Paid"
+{% if student.fee_status=="Paid" %}
+selected
+{% endif %}
+>Paid</option>
+
+<option value="Pending"
+{% if student.fee_status=="Pending" %}
+selected
+{% endif %}
+>Pending</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Update Student
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/students">
+
+<button>Back</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>
